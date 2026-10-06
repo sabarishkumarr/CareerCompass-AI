@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+@theme {
+  --color-canvas-dark: #0a0a0a;
+  --color-canvas-deep: #050505;
+  --color-canvas-card: #141414;
+  --color-canvas-card-hover: #1c1c1c;
+  --color-canvas-border: #262626;
+
+  --color-canvas-light: #fafaf7;
+  --color-canvas-offwhite: #f4f3ef;
+  --color-canvas-light-card: #ffffff;
+  --color-canvas-light-border: #e5e5e0;
+
+  --color-brand-orange: #f97316;
+  --color-brand-orange-hover: #ea580c;
+  --color-brand-orange-light: #ffedd5;
+  --color-brand-amber: #c98a3d;
+  --color-brand-olive: #8a852b;
+  --color-brand-warm-brown: #523a19;
+
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: var(--font-sans);
+    background-color: #fafaf7;
+    color: #171717;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    selection-background-color: #f97316;
+    selection-color: #ffffff;
+  }
+}
+
+@layer components {
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center font-semibold px-4 py-2.5 rounded-lg bg-orange-500 hover:bg-orange-600 text-white shadow-sm hover:shadow-md hover:shadow-orange-500/20 transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center font-semibold px-4 py-2.5 rounded-lg bg-neutral-900 hover:bg-neutral-800 text-white shadow-xs transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center font-medium px-4 py-2.5 rounded-lg bg-white hover:bg-neutral-100 text-neutral-800 border border-neutral-200/90 shadow-xs hover:border-neutral-300 transition-all duration-200 active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center font-medium px-3 py-2 rounded-lg text-neutral-600 hover:text-neutral-900 hover:bg-neutral-200/60 transition-all duration-150 disabled:opacity-50;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center font-semibold px-4 py-2.5 rounded-lg bg-rose-600 hover:bg-rose-700 text-white shadow-xs transition-all duration-150 active:scale-[0.98] disabled:opacity-50;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl border border-neutral-200/80 shadow-xs hover:shadow-sm transition-all duration-200;
+  }
+  .card-hover {
+    @apply bg-white rounded-xl border border-neutral-200/80 shadow-xs hover:shadow-md hover:border-neutral-300 hover:-translate-y-0.5 transition-all duration-200;
+  }
+  .card-dark {
+    @apply bg-neutral-950 text-neutral-100 rounded-2xl border border-neutral-800 shadow-xl transition-all duration-200;
+  }
+  .card-dark-hover {
+    @apply bg-neutral-900/90 text-neutral-100 rounded-2xl border border-neutral-800 shadow-lg hover:border-neutral-700 hover:-translate-y-1 transition-all duration-200;
+  }
+
+  /* Inputs & Labels */
+  .input-field {
+    @apply w-full px-3.5 py-2.5 bg-white border border-neutral-200 rounded-lg text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all duration-150;
+  }
+  .label {
+    @apply block text-xs font-semibold uppercase tracking-wider text-neutral-600 mb-1.5;
+  }
+
+  /* Badges */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium border;
+  }
+  .badge-orange { @apply bg-orange-50 text-orange-700 border-orange-200; }
+  .badge-neutral { @apply bg-neutral-100 text-neutral-700 border-neutral-200; }
+  .badge-amber { @apply bg-amber-50 text-amber-800 border-amber-200; }
+  .badge-olive { @apply bg-stone-100 text-stone-800 border-stone-200; }
+  .badge-green { @apply bg-emerald-50 text-emerald-700 border-emerald-200; }
+  .badge-red { @apply bg-rose-50 text-rose-700 border-rose-200; }
+}
+
+/* Animations & Scroll reveal */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a3a3a3;
+}

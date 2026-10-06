@@ -1,0 +1,47 @@
+# Environment
+.env
+.env.local
+.env.production
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Java
+target/
+*.class
+*.jar
+*.war
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
+
+# ML artifacts (large files)
+ml-service/artifacts/*.pkl
+ml-service/artifacts/*.joblib
+ml-service/artifacts/*.json
+
+# Uploads
+uploads/
+
+# Logs
+*.log
+logs/
+
+# Database
+*.sql~

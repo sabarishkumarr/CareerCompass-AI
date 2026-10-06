@@ -1,0 +1,44 @@
+﻿spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/careercompass
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+server:
+  port: 8080
+  error:
+    include-message: always
+    include-binding-errors: always
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:careercompass_super_secret_jwt_key_at_least_256_bits_long_for_hs512}
+    expiration: ${JWT_EXPIRATION:86400000}
+  ml-service:
+    url: ${ML_SERVICE_URL:http://localhost:8000}
+  cors:
+    allowed-origins: ${FRONTEND_URL:http://localhost:5173,http://localhost:3000}
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.careercompass: INFO
+    org.springframework.security: WARN

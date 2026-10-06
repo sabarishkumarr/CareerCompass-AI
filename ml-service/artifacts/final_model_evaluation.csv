@@ -1,0 +1,8 @@
+Category,Model,Setup / Preprocessing,Accuracy,Precision,Recall,F1-Score,5-Fold CV F1 (Mean ± Std),"Confusion Matrix [TN, FP; FN, TP]"
+Iteration Progression,Random Forest (Baseline),"Original single train/test split (80/20 unstratified), default hyperparameters, no cross-validation",0.8089,0.8173,0.9858,0.8937,N/A (Single Split),"[11, 357; 23, 1597]"
+Iteration Progression,Random Forest (Tuned + Stratified CV),"Leakage/duplicate audit, Stratified 80/20 split, regularized max_depth=15, min_samples_split=10, 5-Fold Stratified CV",0.8164,0.8183,0.9963,0.8986,0.8984 ± 0.0012,"[6, 359; 6, 1617]"
+Final Model Comparison,Logistic Regression,Stratified 80/20 Split + 5-Fold Stratified CV + Scaler Pipeline,0.8184,0.819,0.9982,0.8998,0.8992 ± 0.0008,"[7, 358; 3, 1620]"
+Final Model Comparison,KNN,Stratified 80/20 Split + 5-Fold Stratified CV + Scaler Pipeline,0.7958,0.8204,0.96,0.8847,0.8862 ± 0.0018,"[24, 341; 65, 1558]"
+Final Model Comparison,Decision Tree,Stratified 80/20 Split + 5-Fold Stratified CV + Scaler Pipeline,0.7943,0.8263,0.947,0.8826,0.8775 ± 0.0032,"[42, 323; 86, 1537]"
+Final Model Comparison,Random Forest,Stratified 80/20 Split + 5-Fold Stratified CV + Scaler Pipeline,0.8164,0.8183,0.9963,0.8986,0.8984 ± 0.0012,"[6, 359; 6, 1617]"
+Final Model Comparison,XGBoost,Stratified 80/20 Split + 5-Fold Stratified CV + Scaler Pipeline,0.8013,0.8185,0.9723,0.8888,0.8910 ± 0.0024,"[15, 350; 45, 1578]"
